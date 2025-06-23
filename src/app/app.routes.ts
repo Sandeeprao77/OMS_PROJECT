@@ -6,9 +6,11 @@ import { AdminloginComponent } from './adminlogin/adminlogin.component';
 import { EmployeeregisterComponent } from './employeeregister/employeeregister.component';
 import { EmployeeloginComponent } from './employeelogin/employeelogin.component';
 import { TeamleadComponent } from './teamlead/teamlead.component';
+import { HomeComponent } from './home/home.component';
 
 export const routes: Routes = [
-    {path:"",component:SuperadminregisterComponent},
+    {path:"superadminregister",component:SuperadminregisterComponent},
+    {path:"", component:HomeComponent},
     {path:"superadminlogin",component:SuperadminloginComponent},
     {path:"adminregister",component:AdminregisterComponent},
     {path:"adminlogin",component:AdminloginComponent},

@@ -1,0 +1,17 @@
+.custom_navbar {
+  height: 100px;
+  background: linear-gradient(
+    90deg,
+    rgb(228, 218, 218),
+    rgb(174, 226, 241),
+    rgb(193, 215, 233)
+  );
+  font-size: 25px;
+}
+.company-name {
+  font-size: 50px;
+}
+.home1 {
+
+  background-image: url("/images/img2.jpg");
+}

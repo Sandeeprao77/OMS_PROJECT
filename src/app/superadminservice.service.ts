@@ -9,7 +9,7 @@ export class SuperadminserviceService {
 
   constructor(private http:HttpClient) { }
   postsuperadminlogin(data:any):Observable<any>{
-    return this.http.post("http://localhost:3003:superadmin/superadminlogin",data)
+    return this.http.post("http://localhost:3003/superadmin/superadminlogin",data)
   }
   postsuperadminregister(data:any):Observable<any>{
     return this.http.post("http://localhost:3003/superadmin/superadminregister",data)
