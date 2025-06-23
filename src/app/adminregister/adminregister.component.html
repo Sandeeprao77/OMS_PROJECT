@@ -1,0 +1,55 @@
+
+<div class="container-fluid mt-5">
+    
+  <div class="row ">
+    <div class="col-sm-6 m-auto">
+      <div class="card">
+        <form [formGroup]="adminregisterForm">
+        <div class="card-header">
+          <div class="row">
+            <h3 class="text-center text-danger">Admin Register</h3>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="row">
+            <div>
+              <label for="" class="form-label"> Name</label>
+              <input type="text" name="" class="form-control p-2" 
+              formControlName="Name" />
+            </div>
+            <div>
+              <label for="" class="form-label"> Mail</label>
+              <input type="text" name="" class="form-control p-2"  formControlName="Email"/>
+            </div>
+             <div>
+              <label for="" class="form-label">Designation</label>
+              <input type="text" name="" class="form-control p-2" formControlName="Designation" />
+            </div>
+            
+            <div>
+              <label for="" class="form-label">Id</label>
+              <input type="text" name="" class="form-control p-2" formControlName="Id" />
+            </div>
+            <div>
+              <label for="" class="form-label"> Mobile Number</label>
+              <input type="text" name="" class="form-control p-2"  formControlName="Number"/>
+            </div>
+            <div>
+              <label for="" class="form-label"> Password</label>
+              <input type="text" name="" class="form-control p-2"  formControlName="password"/>
+            </div>
+           
+            <div class="text-center">
+              <button class="btn btn-success btn w-50 p-2 mt-4" (click)="register()" >Register</button>
+            </div>
+            <div>
+              <a routerLink="adminlogin">Already have an account login here</a>
+            </div>
+          </div>
+        </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  
+</div>

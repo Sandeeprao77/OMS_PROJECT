@@ -1,0 +1,66 @@
+<div class="container-fluid mt-5">
+  <div class="row">
+    <div class="col-sm-6 m-auto">
+      <div class="card w-75">
+        <form [formGroup]="taskForm">
+          <div class="card-header">
+            <div class="row">
+              <h3 class="text-center text-danger">Task Data</h3>
+            </div>
+          </div>
+          <div class="card-body">
+            <div class="row">
+              <div>
+                <label for="" class="form-label"> Name</label>
+                <input
+                  type="text"
+                  name=""
+                  class="form-control p-2"
+                  formControlName="task_name"
+                />
+              </div>
+              <div>
+                <label for="" class="form-label"> Description</label>
+                <input
+                  type="text"
+                  name=""
+                  class="form-control p-2"
+                  formControlName="task_description"
+                />
+              </div>
+              <div>
+                <label for="" class="form-label"> Duration</label>
+                <input
+                  type="text"
+                  name=""
+                  class="form-control p-2"
+                  formControlName="task_duration"
+                />
+              </div>
+
+              <div>
+                <label for="" class="form-label" formControlName="task_status"> Status</label>
+                <select class="form-select" aria-label="Default select example">
+                  <option selected>Open this select menu</option>
+                  <option value="Completed">Completed</option>
+                  <option value="Pending">Pending</option>
+                  
+                </select>
+              </div>
+
+              <div class="text-center">
+                <button
+                  class="btn btn-success btn w-50 p-2 mt-4" (click)="task()"
+                  
+                >
+                  Task
+                </button>
+              </div>
+              
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
