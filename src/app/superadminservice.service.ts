@@ -14,4 +14,7 @@ export class SuperadminserviceService {
   postsuperadminregister(data:any):Observable<any>{
     return this.http.post("http://localhost:3003/superadmin/superadminregister",data)
   }
+  getsaprofile(id:String):Observable<any>{
+    return this.http.get(`http://localhost:3003/superadmin/profilebyget/${id}`)
+  }
 }

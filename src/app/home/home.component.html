@@ -1,70 +1,58 @@
-<!-- Navbar HTML code -->
-<nav class="navbar navbar-expand-md navbar-dark px-4 custom_navbar">
-  <a class="navbar-brand text-dark company-name" routerLink="/">VITA OMS</a>
-  <button
-    class="navbar-toggler"
-    type="button"
-    data-bs-toggle="collapse"
-    data-bs-target="#navbarNav"
-    aria-controls="navbarNav"
-    aria-expanded="false"
-    aria-label="Toggle navigation"
-  >
-    <span class="navbar-toggler-icon"></span>
-  </button>
+<div>
+  <nav class="navbar navbar-expand-md navbar-dark px-4 custom_navbar bg-light">
+    <a class="navbar-brand text-dark company_name fw-bold" routerLink="/"
+      >VITA
+    </a>
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarNav"
+      aria-controls="navbarNav"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
 
-  <div class="collapse navbar-collapse" id="navbarNav">
-    <ul class="navbar-nav ms-auto">
-      <li class="nav-item">
-        <a
-          class="nav-link text-dark"
-          routerLink="superadminlogin"
-          routerLinkActive="active"
-          >SuperAdmin</a
-        >
-      </li>
-      <li class="nav-item">
-        <a
-          class="nav-link text-dark"
-          routerLink="adminlogin"
-          routerLinkActive="active"
-          >Admin</a
-        >
-      </li>
-      <li class="nav-item">
-        <a
-          class="nav-link text-dark"
-          routerLink="teamlead"
-          routerLinkActive="active"
-          >TeamLead</a
-        >
-      </li>
-      <li class="nav-item">
-        <a
-          class="nav-link text-dark"
-          routerLink="employeelogin"
-          routerLinkActive="active"
-          >Employee</a
-        >
-      </li>
-    </ul>
-  </div>
-</nav>
-
-<div class="row mt-4 hom1">
-  <div>
-    <p>
-      Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ex
-      exercitationem voluptatum modi fugit obcaecati iste molestias repellendus
-      ad quo quaerat eos odio, sit qui facilis reiciendis veritatis accusantium
-      at ipsam eius voluptas in laboriosam unde odit voluptatibus. Eaque vero
-      iste dicta necessitatibus. Expedita quidem saepe amet! Ducimus dolores
-      eveniet perspiciatis sapiente. Neque fugiat, minus nesciunt nobis
-      reprehenderit sed perspiciatis aliquam assumenda impedit, dolores ea rerum
-      incidunt nisi molestiae molestias ipsam voluptatibus aperiam maiores sit
-      aliquid? Voluptate aut veniam, in vero possimus quod, pariatur culpa
-      expedita doloribus esse reiciendis qui obcaecati? Facere harum dicta
-      recusandae cumque explicabo, asperiores error minima nobis.
-    </p>
-  </div>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item">
+          <a
+            class="nav-link text-dark"
+            routerLink="superadminlogin"
+            routerLinkActive="active"
+            >SuperAdmin</a
+          >
+        </li>
+        <li class="nav-item">
+          <a
+            class="nav-link text-dark"
+            routerLink="adminlogin"
+            routerLinkActive="active"
+            >Admin</a
+          >
+        </li>
+        <li class="nav-item">
+          <a
+            class="nav-link text-dark"
+            routerLink="teamleadlogin"
+            routerLinkActive="active"
+            >TeamLead</a
+          >
+        </li>
+        <li class="nav-item">
+          <a
+            class="nav-link text-dark"
+            routerLink="employeelogin"
+            routerLinkActive="active"
+            >Employee</a
+          >
+        </li>
+      </ul>
+    </div>
+  </nav>
+  <router-outlet></router-outlet>
 </div>
+
+

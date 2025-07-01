@@ -1,55 +1,193 @@
-
-<div class="container-fluid mt-5">
-    
-  <div class="row ">
+<div class="container-fluid  ">
+  <div class="row">
     <div class="col-sm-6 m-auto">
-      <div class="card">
+      <div class="card  border-0">
         <form [formGroup]="adminregisterForm">
-        <div class="card-header">
-          <div class="row">
-            <h3 class="text-center text-danger">Admin Register</h3>
-          </div>
-        </div>
-        <div class="card-body">
-          <div class="row">
-            <div>
-              <label for="" class="form-label">Admin Name</label>
-              <input type="text" name="" class="form-control p-2" 
-              formControlName="Name" />
-            </div>
-            <div>
-              <label for="" class="form-label"> Admin Mail</label>
-              <input type="text" name="" class="form-control p-2"  formControlName="Email"/>
-            </div>
-             <div>
-              <label for="" class="form-label">Admin Designation</label>
-              <input type="text" name="" class="form-control p-2" formControlName="Designation" />
-            </div>
-            
-            <div>
-              <label for="" class="form-label">Admin Id</label>
-              <input type="text" name="" class="form-control p-2" formControlName="Id" />
-            </div>
-            <div>
-              <label for="" class="form-label">Admin Mobile Number</label>
-              <input type="text" name="" class="form-control p-2"  formControlName="Number"/>
-            </div>
-            <div>
-              <label for="" class="form-label">Admin Password</label>
-              <input type="text" name="" class="form-control p-2"  formControlName="password"/>
-            </div>
-           
-            <div class="text-center">
-              <button class="btn btn-success btn w-50 p-2 mt-4" (click)="register()" >Register</button>
-            </div>
-            <div>
-              <a routerLink="adminlogin">Already have an account login here</a>
+          <div class="card-header border-0">
+            <div class="row">
+              <h1 class="text-center text-danger mt-2">Admin Register</h1>
             </div>
           </div>
-        </div>
+          <div class="card-body">
+            <div class="row">
+              <div>
+                <label for="" class="form-label text-success">Admin Name</label>
+                <input
+                  type="text"
+                  name=""
+                  class="form-control p-2"
+                  formControlName="Name"
+                />
+
+                <div
+                  *ngIf="
+                    adminregisterForm.get('Name')?.invalid &&
+                    adminregisterForm.get('Name')?.touched
+                  "style="color: red;"
+                >
+                  <small
+                    *ngIf="adminregisterForm.get('Name')?.errors?.['required']"
+                    >Name is Required</small
+                  >
+                  <small
+                    *ngIf="adminregisterForm.get('Name')?.errors?.['minlength']"
+                    >Name atleast 3 letters</small
+                  >
+                </div>
+              </div>
+              <div>
+                <label for="" class="form-label text-success"> Admin Mail</label>
+                <input
+                  type="text"
+                  name=""
+                  class="form-control p-2"
+                  formControlName="Email"
+                />
+                <div
+                  *ngIf="
+                    adminregisterForm.get('Email')?.touched &&
+                    adminregisterForm.get('Email')?.invalid
+                  "
+                  style="color: red"
+                >
+                  <small
+                    *ngIf="adminregisterForm.get('Email')?.errors?.['required']"
+                    >Email is required</small
+                  >
+                  <small
+                    *ngIf="adminregisterForm.get('Email')?.errors?.['pattern']"
+                    >Enter Valid Email</small
+                  >
+                </div>
+              </div>
+              <div>
+                <label for="" class="form-label text-success"
+                  >Admin Designation</label
+                >
+                <input
+                  type="text"
+                  name=""
+                  class="form-control p-2"
+                  formControlName="Designation"
+                />
+                <div
+                  *ngIf="
+                    adminregisterForm.get('Designation')?.invalid &&
+                    adminregisterForm.get('Designation')?.touched
+                  "style="color: red;"
+                >
+                  <small
+                    *ngIf="adminregisterForm.get('Designation')?.errors?.['required']"
+                    >Designation is Required</small
+                  >
+                  </div>
+              </div>
+
+              <div>
+                <label for="" class="form-label text-success">Admin Id</label>
+                <input
+                  type="text"
+                  name=""
+                  class="form-control p-2"
+                  formControlName="Id"
+                />
+                <div
+                  *ngIf="
+                    adminregisterForm.get('Id')?.invalid &&
+                    adminregisterForm.get('Id')?.touched
+                  "style="color: red;"
+                >
+                  <small
+                    *ngIf="adminregisterForm.get('Id')?.errors?.['required']"
+                    >Id is Required</small
+                  >
+                  </div>
+              </div>
+              <div>
+                <label for="" class="form-label text-success"
+                  >Admin Mobile Number</label
+                >
+                <input
+                  type="text"
+                  name=""
+                  class="form-control p-2"
+                  formControlName="Number"
+                />
+                <div
+                  *ngIf="
+                    adminregisterForm.get('Number')?.touched &&
+                    adminregisterForm.get('Number')?.invalid
+                  "
+                  style="color: red"
+                >
+                  <div
+                    *ngIf="adminregisterForm.get('Number')?.errors?.['required']"
+                  >
+                    Mobile number is required.
+                  </div>
+                  <div
+                    *ngIf="adminregisterForm.get('Number')?.errors?.['minlength']"
+                  >
+                    Must be 10 digits.
+                  </div>
+                  <div
+                    *ngIf="adminregisterForm.get('Number')?.errors?.['maxlength']"
+                  >
+                    Must be 10 digits.
+                  </div>
+                  
+                </div>
+
+
+              </div>
+              <div>
+                <label for="" class="form-label text-success"
+                  >Admin Password</label
+                >
+                <input
+                  type="text"
+                  name=""
+                  class="form-control p-2"
+                  formControlName="Password"
+                />
+                 <div
+                  *ngIf="
+                    adminregisterForm.get('Password')?.touched &&
+                    adminregisterForm.get('Password')?.invalid
+                  "
+                >
+                  <div
+                    *ngIf="adminregisterForm.get('Password')?.errors?.['required']"
+                  >
+                    Password is required.
+                  </div>
+                  <div
+                    *ngIf="adminregisterForm.get('Password')?.errors?.['pattern']"
+                  >
+                    Must be characters and 8 letters.
+                  </div>
+                  <div
+                    *ngIf="adminregisterForm.get('Password')?.errors?.['minlength']"
+                  >
+                    Atleast 6 digits
+                  </div>
+                </div>
+
+
+              </div>
+
+              <div class="text-center">
+                <button
+                  class="btn btn-success text-dark w-50 p-2 mt-4"
+                  (click)="register()"
+                >
+                  Register
+                </button>
+              </div>
+            </div>
+          </div>
         </form>
       </div>
     </div>
   </div>
-  
 </div>

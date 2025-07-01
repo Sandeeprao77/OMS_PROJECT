@@ -1,40 +1,80 @@
-
-<div class="container-fluid mt-4">
-    
+<div class="container-fluid hom1">
+  <div class="row">
     <div class="row">
-        <div class="row">
-            <div class="col-sm-6 m-auto">
-                <div class="card w-50">
-                    <form [formGroup]="loginForm">
-                    <div class="card-header">
-                        <div class="row">
-                            <h1 class="text-center text-danger">Login Form </h1>
-                            <p class="text-center">(Admin)</p>
-                        </div>
-                    </div>
-                    <div class="card-body">
-                        <div class="row">
-                            <div>
-                                <label for="" class="form-label text-primary" >Mail</label>
-                                <input type="text" name="" class="form-control p-2" formControlName="Email" >
-                            </div>
-                             <div>
-                                <label for="" class="form-label text-primary">Password</label>
-                                <input type="text" name="" class="form-control p-2" formControlName="Password" >
-                            </div>
-                            <div class="text-center">
-                                <button class="btn btn-success btn w-50 p-2 mt-4" (click)="login()" >Sign-in</button>
-                            </div>
-                            <div>
-                                <a routerLink="adminregister">Don't Have An Account Register Here</a>
-                            </div>
-                        </div>
-                    </div>
-                    </form>
-                </div>
+      <div class="col-md-4 m-auto">
+        <div class="card w-100 mt-5">
+          <form [formGroup]="loginForm">
+            <div class="card-header">
+              <div class="row">
+                <h1 class="text-center text-light">Login Form</h1>
+                <p class="text-center">(Admin)</p>
+              </div>
             </div>
-           
+            <div class="card-body">
+              <div class="row">
+                <div>
+                  <label for="" class="form-label text-light">Admin_Mail</label>
+                  <input
+                    type="text"
+                    name=""
+                    class="form-control p-2"
+                    formControlName="Email"
+                  />
+                  <div
+                    *ngIf="
+                      loginForm.get('Email')?.touched &&
+                      loginForm.get('Email')?.invalid
+                    "
+                    style="color: red"
+                  >
+                    <small *ngIf="loginForm.get('Email')?.errors?.['required']"
+                      >Email is required</small
+                    >
+                    <small *ngIf="loginForm.get('Email')?.errors?.['pattern']"
+                      >Enter Valid Email</small
+                    >
+                  </div>
+                </div>
+                <div>
+                  <label for="" class="form-label text-light"
+                    >Admin_Password</label
+                  >
+                  <input
+                    type="text"
+                    name=""
+                    class="form-control p-2"
+                    formControlName="Password"
+                  />
+                  <div
+                    *ngIf="
+                      loginForm.get('Password')?.touched &&
+                      loginForm.get('Password')?.invalid
+                    "
+                    style="color: red"
+                  >
+                    <small
+                      *ngIf="loginForm.get('Password')?.errors?.['required']"
+                      >Enter Valid Password</small
+                    >
+                    <small
+                      *ngIf="loginForm.get('Password')?.errors?.['minlength']"
+                      >Password atleast 6 characters</small
+                    >
+                  </div>
+                </div>
+                <div class="text-center">
+                  <button
+                    class="btn btn-success btn w-50 p-2 mt-4"
+                    (click)="login()"
+                  >
+                    Sign-in
+                  </button>
+                </div>
+              </div>
+            </div>
+          </form>
         </div>
+      </div>
     </div>
-     
+  </div>
 </div>

@@ -6,12 +6,8 @@
     rgb(174, 226, 241),
     rgb(193, 215, 233)
   );
-  font-size: 25px;
+  
 }
-.company-name {
+.company_name {
   font-size: 50px;
-}
-.home1 {
-
-  background-image: url("/images/img2.jpg");
 }

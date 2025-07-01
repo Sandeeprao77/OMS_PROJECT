@@ -1,0 +1,135 @@
+<div class="container mt-1">
+  <div class="row justify-content-center">
+    <div class="col-md-10">
+      <div class="card shadow">
+        <form [formGroup]="profileForm">
+          <div class="card-header bg-primary text-white text-center">
+            <h4>Admin Profile</h4>
+          </div>
+          <div class="card-body">
+            <div class="row">
+              <div class="col-sm-4 mt-5">
+                <img src="/images/sir3.png" />
+              </div>
+              <div class="col-sm-8">
+                <div class="mb-3">
+                  <label class="form-label fw-bold">Name</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    formControlName="Name"
+                  />
+                </div>
+                <div class="mb-3">
+                  <label class="form-label fw-bold">Email</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    formControlName="Email"
+                  />
+                </div>
+                <div class="mb-3">
+                  <label class="form-label fw-bold">Designation</label>
+                  <input
+                    type="email"
+                    class="form-control"
+                    formControlName="Designation"
+                  />
+                </div>
+                <div class="mb-3">
+                  <label class="form-label fw-bold">Id</label>
+                  <input type="" class="form-control" formControlName="Id" />
+                </div>
+                <div class="mb-3">
+                  <label class="form-label fw-bold">Number</label>
+                  <input
+                    type=""
+                    class="form-control"
+                    formControlName="Number"
+                  />
+                </div>
+                <div class="text-center">
+                  <button
+                    class="btn btn-success w-50"
+                    data-bs-toggle="modal"
+                    data-bs-target="#myEmptyModal"
+                    (click)="editProfile(admin)"
+                  >
+                    EDIT
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+<div
+  class="modal fade"
+  id="myEmptyModal"
+  tabindex="-1"
+  aria-labelledby="myEmptyModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-body">
+        <div class="card">
+          <form [formGroup]="editForm">
+            <div class="card-header bg-primary">
+              <div class="row">
+                <h1 class="text-center text-white">Admin Details</h1>
+              </div>
+            </div>
+            <div class="card-body">
+              <div class="mb-3">
+                <label class="form-label fw-bold">Name</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  formControlName="Name"
+                />
+              </div>
+              <div class="mb-3">
+                <label class="form-label fw-bold">Email</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  formControlName="Email"
+                />
+              </div>
+              <div class="mb-3">
+                <label class="form-label fw-bold">Designation</label>
+                <input
+                  type="email"
+                  class="form-control"
+                  formControlName="Designation"
+                />
+              </div>
+              <div class="mb-3">
+                <label class="form-label fw-bold">Id</label>
+                <input type="" class="form-control" formControlName="Id" />
+              </div>
+              <div class="mb-3">
+                <label class="form-label fw-bold">Number</label>
+                <input type="" class="form-control" formControlName="Number" />
+              </div>
+              <div class="text-center">
+                <button
+                  class="btn btn-success"
+                  data-bs-toggle="modal"
+                  data-bs-target="#myEmptyModal"
+                  (click)="update()"
+                >
+                  UPDATE
+                </button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

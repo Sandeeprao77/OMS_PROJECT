@@ -1,78 +1,166 @@
-
-<div class="container-fluid mt-5">
+<div class="container-fluid mt-2 ">
   <div class="row">
     <div class="col-sm-6 m-auto">
-      <div class="card w-75">
+      <div class="card ">
         <form [formGroup]="employeeregisterForm">
-        <div class="card-header">
-          <div class="row">
-            <h3 class="text-center text-danger">Employee Register</h3>
-          </div>
-        </div>
-        <div class="card-body">
-          <div class="row">
-            <div>
-              <label for="" class="form-label">Employee Name</label>
-              <input
-                type="text"
-                name=""
-                class="form-control p-2"
-                formControlName="emp_name"
-              />
-            </div>
-             <div>
-              <label for="" class="form-label"> Employee Id</label>
-              <input
-                type="text"
-                name=""
-                class="form-control p-2"
-                formControlName="emp_id"
-              />
-            </div>
-            
-            <div>
-              <label for="" class="form-label"> Employee Mail</label>
-              <input
-                type="text"
-                name=""
-                class="form-control p-2"
-                formControlName="emp_mail"
-              />
-            </div>
-             <div>
-              <label for="" class="form-label"> Employee Mobile Number</label>
-              <input
-                type="text"
-                name=""
-                class="form-control p-2"
-                formControlName="emp_number"
-              />
-            </div>
-            
-           
-            <div>
-              <label for="" class="form-label">Employee Password</label>
-              <input
-                type="text"
-                name=""
-                class="form-control p-2"
-                formControlName="emp_password"
-              />
-            </div>
-            
-            <div class="text-center">
-              <button
-                class="btn btn-success btn w-50 p-2 mt-4" (click)="register()"
-                
-              >
-                Register
-              </button>
-            </div>
-            <div>
-              <a routerLink="employeelogin">Already have an account login here</a>
+          <div class="card-header">
+            <div class="row">
+              <h1 class="text-center text-danger mt-2">Employee Register</h1>
             </div>
           </div>
-        </div>
+          <div class="card-body">
+            <div class="row">
+              <div>
+                <label for="" class="form-label text-success">Employee Name</label>
+                <input
+                  type="text"
+                  name=""
+                  class="form-control p-2"
+                  formControlName="emp_name"
+                />
+                <div
+                  *ngIf="
+                    employeeregisterForm.get('emp_name')?.touched &&
+                    employeeregisterForm.get('emp_name')?.invalid
+                  "
+                  style="color: red"
+                >
+                <div
+                    *ngIf="employeeregisterForm.get('emp_name')?.errors?.['required']"
+                  >
+                    Name is required
+                  </div>
+                  <div
+                    *ngIf="employeeregisterForm.get('emp_name')?.errors?.['minlength']"
+                  >
+                    Enter valid Name && Atleast 3 characters.
+                  </div>
+                </div>
+              </div>
+              <div>
+                <label for="" class="form-label text-success"> Employee Id</label>
+                <input
+                  type="text"
+                  name=""
+                  class="form-control p-2"
+                  formControlName="emp_id"
+                />
+                <div
+                  *ngIf="
+                    employeeregisterForm.get('emp_id')?.touched &&
+                    employeeregisterForm.get('emp_id')?.invalid
+                  "
+                  style="color: red"
+                >
+                <small  *ngIf="employeeregisterForm.get('emp_id')?.errors?.['required']">
+                  Id is required
+                </small>
+                  <small *ngIf="employeeregisterForm.get('emp_id')?.errors?.['minlength']">
+                    Enter valid Id && Atleast 3 digits
+                  </small>
+                </div>
+              </div>
+
+              <div>
+                <label for="" class="form-label text-success"> Employee Mail</label>
+                <input
+                  type="text"
+                  name=""
+                  class="form-control p-2"
+                  formControlName="emp_mail"
+                />
+                <div
+                  *ngIf="
+                    employeeregisterForm.get('emp_mail')?.touched &&
+                    employeeregisterForm.get('emp_mail')?.invalid
+                  "style="color: red;"
+                >
+                  <small
+                    *ngIf="employeeregisterForm.get('emp_mail')?.errors?.['required']"
+                    >Email is required.</small
+                  >
+                  <small
+                    *ngIf="employeeregisterForm.get('emp_mail')?.errors?.['pattern']"
+                    >Enter a valid email.</small
+                  >
+                </div>
+              </div>
+              <div>
+                <label for="" class="form-label text-success"> Employee Mobile Number</label>
+                <input
+                  type="text"
+                  name=""
+                  class="form-control p-2"
+                  formControlName="emp_number"
+                />
+                <div
+                  *ngIf="
+                    employeeregisterForm.get('emp_number')?.touched &&
+                    employeeregisterForm.get('emp_number')?.invalid
+                  "
+                  style="color: red"
+                >
+                  <div
+                    *ngIf="employeeregisterForm.get('emp_number')?.errors?.['required']"
+                  >
+                    Mobile number is required.
+                  </div>
+                  <div
+                    *ngIf="employeeregisterForm.get('emp_number')?.errors?.['minlength']"
+                  >
+                    Must be 10 digits.
+                  </div>
+                  <div
+                    *ngIf="employeeregisterForm.get('emp_number')?.errors?.['maxlength']"
+                  >
+                    Must be 10 digits.
+                  </div>
+                  
+                </div>
+              </div>
+
+              <div>
+                <label for="" class="form-label text-success">Employee Password</label>
+                <input
+                  type="text"
+                  name=""
+                  class="form-control p-2"
+                  formControlName="emp_password"
+                />
+                <div
+                  *ngIf="
+                    employeeregisterForm.get('emp_password')?.touched &&
+                    employeeregisterForm.get('emp_password')?.invalid
+                  "style="color:red;"
+                >
+                  <div
+                    *ngIf="employeeregisterForm.get('emp_password')?.errors?.['required']"
+                  >
+                    Password is required.
+                  </div>
+                  <div
+                    *ngIf="employeeregisterForm.get('emp_password')?.errors?.['pattern']"
+                  >
+                    Must be characters and 8 letters.
+                  </div>
+                  <div
+                    *ngIf="employeeregisterForm.get('emp_password')?.errors?.['minlength']"
+                  >
+                    Atleast 6 digits
+                  </div>
+                </div>
+              </div>
+
+              <div class="text-center">
+                <button
+                  class="btn btn-success text-dark btn w-50 p-2 mt-4"
+                  (click)="register()"
+                >
+                  Register
+                </button>
+              </div>
+            </div>
+          </div>
         </form>
       </div>
     </div>

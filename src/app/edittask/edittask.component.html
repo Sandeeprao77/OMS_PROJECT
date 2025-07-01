@@ -1,0 +1,130 @@
+<div class="col-sm-12">
+  <div class="container mt-4">
+    <h3 class="mb-3 text-primary">#Task List</h3>
+    <div class="table-responsive">
+      <table
+        class="table table-striped table-bordered table-hover text-center align-middle"
+      >
+        <thead class="table-dark">
+          <tr>
+            <th>#</th>
+            <th>Task Name</th>
+            <th>Task Description</th>
+            <th>Task Duration</th>
+            <th>Task Status</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let task of taskdata; let i = index">
+            <td>{{ i + 1 }}</td>
+            <td>{{ task.task_name }}</td>
+            <td>{{ task.task_description }}</td>
+            <td>{{ task.task_duration }}</td>
+            <td>{{ task.task_status }}</td>
+            <td class="d-flex btn-group">
+              <button
+                class="btn btn-info"
+                data-bs-toggle="modal"
+                data-bs-target="#myEmptyModal"
+                (click)="editTask(task)"
+              >
+                Edit
+              </button>
+              <button class="btn btn-danger" (click)="deleteTask(task._id)" >
+                Delete
+              </button>
+              
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+<div
+  class="modal fade"
+  id="myEmptyModal"
+  tabindex="-1"
+  aria-labelledby="myEmptyModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="myEmptyModalLabel"></h5>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+
+      <div class="modal-body">
+        <div class="card">
+          <form [formGroup]="editForm">
+            <div class="card-header">
+              <div class="row">
+                <h1 class="text-center">Task Details</h1>
+              </div>
+            </div>
+            <div class="card-body">
+              <div class="row">
+                 <div>
+                <label for="" class="form-label text-primary">Task Name</label>
+                <input
+                  type="text"
+                  name=""
+                  class="form-control p-2"
+                  formControlName="task_name"
+                />
+              </div>
+              <div>
+                <label for="" class="form-label text-primary">Task Description</label>
+                <input
+                  type="text"
+                  name=""
+                  class="form-control p-2"
+                  formControlName="task_description"
+                />
+              </div>
+              <div>
+                <label for="" class="form-label text-primary">Task Duration</label>
+                <input
+                  type="text"
+                  name=""
+                  class="form-control p-2"
+                  formControlName="task_duration"
+                />
+              </div>
+                <div>
+                  <label for="" class="form-label text-primary">Task Status</label>
+                  <select
+                    formControlName="task_status"
+                    class="form-select form-label-lg"
+                    aria-label="Default select example"
+                  >
+                   
+                    <option value="pending">Pending</option>
+                    <option value="completed">Completed</option>
+                  </select>
+                </div>
+                <div class="text-center">
+                  <button
+                  type="button"
+                    class="btn btn-success btn w-50 p-2 mt-4"
+                    (click)="updateTask()"
+                  >
+                    Update
+                  </button>
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+

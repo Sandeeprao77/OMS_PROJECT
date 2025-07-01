@@ -1,0 +1,80 @@
+<div class="container-fluid hom1">
+  <div class="row">
+    <div class="row">
+      <div class="col-md-4 m-auto">
+        <div class="card w-100 mt-5">
+          <form [formGroup]="loginForm">
+            <div class="card-header">
+              <div class="row">
+                <h1 class="text-center text-light">Login Form</h1>
+                <p class="text-center">(TeamLead)</p>
+              </div>
+            </div>
+            <div class="card-body">
+              <div class="row">
+                <div>
+                  <label for="" class="form-label text-light">TL_Mail</label>
+                  <input
+                    type="text"
+                    name=""
+                    class="form-control p-2"
+                    formControlName="TL_Mail"
+                  />
+
+                  <div
+                    *ngIf="
+                      loginForm.get('TL_Mail')?.invalid &&
+                      loginForm.get('TL_Mail')?.touched
+                    "style="color: red;"
+                  >
+                    <small
+                      *ngIf="loginForm.get('TL_Mail')?.errors?.['required']"
+                      >Email is required</small
+                    >
+                    <small *ngIf="loginForm.get('TL_Mail')?.errors?.['pattern']"
+                      >Enter valid Email</small
+                    >
+                  </div>
+                </div>
+                <div>
+                  <label for="" class="form-label text-light"
+                    >TL_Password</label
+                  >
+                  <input
+                    type="text"
+                    name=""
+                    class="form-control p-2"
+                    formControlName="TL_Password"
+                  />
+                  <div
+                    *ngIf="
+                      loginForm.get('TL_Password')?.invalid &&
+                      loginForm.get('TL_Password')?.touched
+                    "style="color: red;"
+                  >
+                    <small
+                      *ngIf="loginForm.get('TL_Password')?.errors?.['required']"
+                      >Password is required</small
+                    >
+                    <small
+                      *ngIf="loginForm.get('TL_Password')?.errors?.['minlength']"
+                      >Password atleast 4 digits</small
+                    >
+                  </div>
+                </div>
+                <div class="text-center">
+                  <button
+                    class="btn btn-success btn w-50 p-2 mt-4"
+                    (click)="login()"
+                  >
+                    Sign-in
+                  </button>
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

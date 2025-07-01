@@ -1,0 +1,48 @@
+.custom_navbar {
+  height: 100px;
+  background: linear-gradient(
+    90deg,
+    rgb(228, 218, 218),
+    rgb(174, 226, 241),
+    rgb(193, 215, 233)
+  );
+  font-size: 25px;
+}
+.company-name {
+  font-size: 50px;
+}
+.home1 {
+  background-image: url("/images/img2.jpg");
+}
+.custom_navbar {
+  height: 100px;
+  background: linear-gradient(
+    90deg,
+    rgb(228, 218, 218),
+    rgb(174, 226, 241),
+    rgb(193, 215, 233)
+  );
+  font-size: 25px;
+}
+.company-name {
+  font-size: 50px;
+}
+.hom1 {
+  background-image: url("/images/bg1.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 585px;
+}
+.card {
+  background-color: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+  border-radius: 12px;
+  padding: 2rem;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  color: #000;
+  width: 100%;
+  max-width: 400px;
+}
+.btn {
+  background: linear-gradient(180deg, rgb(200, 111, 126), rgb(87, 87, 250));
+}

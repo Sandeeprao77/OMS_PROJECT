@@ -1,50 +1,81 @@
-<div class="container-fluid mt-4">
-  
+<div class="container-fluid hom1">
   <div class="row">
-    <div class="row">
-      <div class="col-sm-6 m-auto">
-        <div class="card w-50">
-          <form [formGroup]="loginForm">
+    <div class="col-md-4 m-auto">
+      <div class="card w-100 mt-5">
+        <form [formGroup]="loginForm">
           <div class="card-header">
             <div class="row">
-              <h1 class="text-center text-danger"> Login Form</h1>
+              <h1 class="text-center text-light">Login Form</h1>
               <p class="text-center">(Super Admin)</p>
             </div>
           </div>
           <div class="card-body">
             <div class="row">
               <div>
-                <label for="" class="form-label text-primary">Mail</label>
+                <label for="" class="form-label text-light">SA_Mail</label>
                 <input
                   type="text"
                   name=""
                   class="form-control p-2"
                   formControlName="super_admin_mail"
                 />
+                <div
+                  *ngIf="
+                    loginForm.get('super_admin_mail')?.invalid &&
+                    loginForm.get('super_admin_mail')?.touched
+                  "style="color: red;"
+                >
+                  <small
+                    *ngIf="loginForm.get('super_admin_mail')?.errors?.['required']"
+                    >Mail is required</small
+                  >
+                  <small
+                    *ngIf="loginForm.get('super_admin_mail')?.errors?.['pattern']"
+                    >Enter valid Email</small
+                  >
+                </div>
               </div>
               <div>
-                <label for="" class="form-label text-primary">Password</label>
+                <label for="" class="form-label text-light">SA_Password</label>
                 <input
                   type="text"
                   name=""
                   class="form-control p-2"
                   formControlName="super_admin_password"
                 />
+                <div
+                  *ngIf="
+                    loginForm.get('super_admin_password')?.invalid &&
+                    loginForm.get('super_admin_password')?.touched
+                  "style="color: red;"
+                >
+                  <small
+                    *ngIf="loginForm.get('super_admin_password')?.errors?.['required']"
+                    >Mail is required</small
+                  >
+                  <small
+                    *ngIf="loginForm.get('super_admin_password')?.errors?.['minlength']"
+                    >Password atleast 6 characters</small
+                  >
+                </div>
+
+
               </div>
               <div class="text-center">
-                <button class="btn btn-success btn w-50 p-2 mt-4" (click)="login()">
+                <button
+                  class="btn btn-success btn w-50 p-2 mt-4"
+                  (click)="login()"
+                >
                   Sign-in
                 </button>
               </div>
-              <div>
-                <a routerLink="">Don't Have An Account Register Here</a>
-              </div>
             </div>
           </div>
-          </form>
-        </div>
+        </form>
       </div>
     </div>
   </div>
-  
+  <div class="row">
+    <p></p>
+  </div>
 </div>

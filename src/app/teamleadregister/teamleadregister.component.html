@@ -1,0 +1,158 @@
+<div class="container-fluid  mt-2 ">
+  <div class="row">
+    <div class="col-sm-6 m-auto">
+      <div class="card">
+        <form [formGroup]="tlregisterForm">
+          <div class="card-header ">
+            <div class="row">
+              <h1 class="text-center text-danger mt-2">TeamLead Register</h1>
+            </div>
+          </div>
+          <div class="card-body">
+            <div class="row">
+              <div>
+                <label for="" class="form-label text-success">TL_Name</label>
+                <input
+                  type="text"
+                  name=""
+                  class="form-control p-2"
+                  formControlName="TL_Name"
+                />
+
+                <div
+                  *ngIf="
+                    tlregisterForm.get('TL_Name')?.invalid &&
+                    tlregisterForm.get('TL_Name')?.touched
+                  " style="color: red;"
+                >
+                  <small
+                    *ngIf="tlregisterForm.get('TL_Name')?.errors?.['required']"
+                    >Name is required</small
+                  >
+                  <small
+                    *ngIf="tlregisterForm.get('TL_Name')?.errors?.['minlength']"
+                    >Name atleast 3 letters</small
+                  >
+                </div>
+              </div>
+              <div>
+                <label for="" class="form-label text-success"> TL_Mail</label>
+                <input
+                  type="text"
+                  name=""
+                  class="form-control p-2"
+                  formControlName="TL_Mail"
+                />
+                <div
+                  *ngIf="
+                    tlregisterForm.get('TL_Mail')?.invalid &&
+                    tlregisterForm.get('TL_Mail')?.touched
+                  "style="color: red;"
+                >
+                  <small
+                    *ngIf="tlregisterForm.get('TL_Mail')?.errors?.['required']"
+                    >Email is required</small
+                  >
+                  <small
+                    *ngIf="tlregisterForm.get('TL_Mail')?.errors?.['pattern']"
+                    >Enter valid Email</small
+                  >
+                </div>
+              </div>
+
+              <div>
+                <label for="" class="form-label text-success">TL_Id</label>
+                <input
+                  type="text"
+                  name=""
+                  class="form-control p-2"
+                  formControlName="TL_Id"
+                />
+                <div
+                  *ngIf="
+                    tlregisterForm.get('TL_Id')?.invalid &&
+                    tlregisterForm.get('TL_Id')?.touched
+                  "style="color: red;"
+                >
+                  <small
+                    *ngIf="tlregisterForm.get('TL_Id')?.errors?.['required']"
+                    >Id is required</small
+                  >
+                  <small
+                    *ngIf="tlregisterForm.get('TL_Id')?.errors?.['minlength']"
+                    >Id atleast 3 digits</small
+                  >
+                </div>
+
+
+              </div>
+              <div>
+                <label for="" class="form-label text-success">TL_Mobile_Number</label>
+                <input
+                  type="text"
+                  name=""
+                  class="form-control p-2"
+                  formControlName="TL_Mobile_Number"
+                />
+                <div
+                  *ngIf="
+                    tlregisterForm.get('TL_Mobile_Number')?.invalid &&
+                    tlregisterForm.get('TL_Mobile_Number')?.touched
+                  "style="color: red;"
+                >
+                  <small
+                    *ngIf="tlregisterForm.get('TL_Mobile_Number')?.errors?.['required']"
+                    >Number is required</small
+                  >
+                  <small
+                    *ngIf="tlregisterForm.get('TL_Mobile_Number')?.errors?.['minlength']"
+                    > Enter valid 10 digits Mobile number</small
+                  >
+                  <small
+                    *ngIf="tlregisterForm.get('TL_Mobile_Number')?.errors?.['maxlength']"
+                    >Password atleast 10 digits</small
+                  >
+                </div>
+
+
+              </div>
+              <div>
+                <label for="" class="form-label text-success">TL_Password</label>
+                <input
+                  type="text"
+                  name=""
+                  class="form-control p-2"
+                  formControlName="TL_Password"
+                />
+                <div
+                  *ngIf="
+                    tlregisterForm.get('TL_Password')?.invalid &&
+                    tlregisterForm.get('TL_Password')?.touched
+                  "style="color: red;"
+                >
+                  <small
+                    *ngIf="tlregisterForm.get('TL_Password')?.errors?.['required']"
+                    >Password is required</small
+                  >
+                  <small
+                    *ngIf="tlregisterForm.get('TL_Password')?.errors?.['minlength']"
+                    >Password atleast 4 digits</small
+                  >
+                </div>
+              </div>
+
+              <div class="text-center ">
+                <button
+                  class="btn btn-success text-dark btn w-50 p-2 mt-4"
+                  (click)="register()"
+                >
+                  Register
+                </button>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

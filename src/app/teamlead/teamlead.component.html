@@ -11,7 +11,7 @@
           <div class="card-body">
             <div class="row">
               <div>
-                <label for="" class="form-label"> Name</label>
+                <label for="" class="form-label text-primary">Task Name</label>
                 <input
                   type="text"
                   name=""
@@ -20,7 +20,7 @@
                 />
               </div>
               <div>
-                <label for="" class="form-label"> Description</label>
+                <label for="" class="form-label text-primary">Task Description</label>
                 <input
                   type="text"
                   name=""
@@ -29,7 +29,7 @@
                 />
               </div>
               <div>
-                <label for="" class="form-label"> Duration</label>
+                <label for="" class="form-label text-primary">Task Duration</label>
                 <input
                   type="text"
                   name=""
@@ -37,26 +37,15 @@
                   formControlName="task_duration"
                 />
               </div>
-
-              <div>
-                <label for="" class="form-label" formControlName="task_status"> Status</label>
-                <select class="form-select" aria-label="Default select example">
-                  <option selected>Open this select menu</option>
-                  <option value="Completed">Completed</option>
-                  <option value="Pending">Pending</option>
-                  
-                </select>
-              </div>
-
+              
               <div class="text-center">
                 <button
-                  class="btn btn-success btn w-50 p-2 mt-4" (click)="task()"
-                  
+                  class="btn btn-success btn w-50 p-2 mt-4"
+                  (click)="task()"
                 >
                   Task
                 </button>
               </div>
-              
             </div>
           </div>
         </form>

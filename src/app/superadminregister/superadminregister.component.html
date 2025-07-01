@@ -3,65 +3,130 @@
     <div class="col-sm-6 m-auto">
       <div class="card w-75">
         <form [formGroup]="superadminregisterForm">
-        <div class="card-header">
-          <div class="row">
-            <h3 class="text-center text-danger">Super Admin Data</h3>
-          </div>
-        </div>
-        <div class="card-body">
-          <div class="row">
-            <div>
-              <label for="" class="form-label"> Name</label>
-              <input
-                type="text"
-                name=""
-                class="form-control p-2"
-                formControlName="super_admin_name"
-              />
-            </div>
-             <div>
-              <label for="" class="form-label"> Mobile Number</label>
-              <input
-                type="text"
-                name=""
-                class="form-control p-2"
-                formControlName="super_admin_number"
-              />
-            </div>
-            <div>
-              <label for="" class="form-label"> Mail</label>
-              <input
-                type="text"
-                name=""
-                class="form-control p-2"
-                formControlName="super_admin_mail"
-              />
-            </div>
-            
-           
-            <div>
-              <label for="" class="form-label"> Password</label>
-              <input
-                type="text"
-                name=""
-                class="form-control p-2"
-                formControlName="super_admin_password"
-              />
-            </div>
-            
-            <div class="text-center">
-              <button
-                class="btn btn-success btn w-50 p-2 mt-4"(click)="register()"
-                
-              >
-                Register
-              </button>
-            </div>
-            <div>
-              <a routerLink="superadminlogin">Already have an account login here</a>
+          <div class="card-header">
+            <div class="row">
+              <h3 class="text-center text-danger">Super Admin Data</h3>
             </div>
           </div>
-        </div>
+          <div class="card-body">
+            <div class="row">
+              <div>
+                <label for="" class="form-label"> Name</label>
+                <input
+                  type="text"
+                  name=""
+                  class="form-control p-2"
+                  formControlName="super_admin_name"
+                />
+                <div
+                  *ngIf="
+                    superadminregisterForm.get('super_admin_name')?.invalid &&
+                    superadminregisterForm.get('super_admin_name')?.touched
+                  "
+                >
+                  <small
+                    *ngIf="superadminregisterForm.get('super_admin_name')?.errors?.['required']"
+                    >Name is required</small
+                  >
+                  <small
+                    *ngIf="superadminregisterForm.get('super_admin_name')?.errors?.['minlength']"
+                    >Name atleast 3 letters</small
+                  >
+
+                </div>
+              </div>
+              <div>
+                <label for="" class="form-label"> Mobile Number</label>
+                <input
+                  type="text"
+                  name=""
+                  class="form-control p-2"
+                  formControlName="super_admin_number"
+                />
+                <div
+                  *ngIf="
+                    superadminregisterForm.get('super_admin_number')?.touched &&
+                    superadminregisterForm.get('super_admin_number')?.invalid
+                  "
+                  style="color: red"
+                >
+                  <div
+                    *ngIf="superadminregisterForm.get('super_admin_number')?.errors?.['required']"
+                  >
+                    Mobile number is required.
+                  </div>
+                  <div
+                    *ngIf="superadminregisterForm.get('super_admin_number')?.errors?.['minlength']"
+                  >
+                    Must be 10 digits.
+                  </div>
+                  <div
+                    *ngIf="superadminregisterForm.get('super_admin_number')?.errors?.['maxlength']"
+                  >
+                    Must be 10 digits.
+                  </div>
+                </div>
+              </div>
+              <div>
+                <label for="" class="form-label"> Mail</label>
+                <input
+                  type="text"
+                  name=""
+                  class="form-control p-2"
+                  formControlName="super_admin_mail"
+                />
+                <div
+                  *ngIf="
+                    superadminregisterForm.get('super_admin_mail')?.invalid &&
+                    superadminregisterForm.get('super_admin_mail')?.touched
+                  "
+                >
+                  <small
+                    *ngIf="superadminregisterForm.get('super_admin_mail')?.errors?.['required']"
+                    >Mail is required</small
+                  >
+                  <small
+                    *ngIf="superadminregisterForm.get('super_admin_mail')?.errors?.['pattern']"
+                    >Enter valid Email</small
+                  >
+                </div>
+              </div>
+              <div>
+                <label for="" class="form-label"> Password</label>
+                <input
+                  type="text"
+                  name=""
+                  class="form-control p-2"
+                  formControlName="super_admin_password"
+                />
+                <div
+                  *ngIf="
+                    superadminregisterForm.get('super_admin_password')
+                      ?.invalid &&
+                    superadminregisterForm.get('super_admin_password')?.touched
+                  "
+                >
+                  <small
+                    *ngIf="superadminregisterForm.get('super_admin_password')?.errors?.['required']"
+                    >Mail is required</small
+                  >
+                  <small
+                    *ngIf="superadminregisterForm.get('super_admin_password')?.errors?.['minlength']"
+                    >Password atleast 6 characters</small
+                  >
+                </div>
+              </div>
+
+              <div class="text-center">
+                <button
+                  class="btn btn-success btn w-50 p-2 mt-4"
+                  (click)="register()"
+                >
+                  Register
+                </button>
+              </div>
+            </div>
+          </div>
         </form>
       </div>
     </div>
