@@ -1,13 +1,12 @@
 .hom1 {
-  
-  background-image: url("/images/bg1.png");
+  background-image: url("/images/bg4.jpg");
   background-repeat: no-repeat;
   background-size: cover;
-  height: 585px;
+  height: 500px;
 }
-.card{
-    background-color: rgba(255, 255, 255, 0.2); 
-  backdrop-filter: blur(10px); 
+.card {
+  background-color: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
   border-radius: 12px;
   padding: 2rem;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
@@ -15,7 +14,6 @@
   width: 100%;
   max-width: 400px;
 }
-.btn{
-    background: linear-gradient(180deg,rgb(200, 111, 126),rgb(87, 87, 250));
+.btn {
+   background: linear-gradient(180deg, rgb(151, 191, 215), rgb(164, 164, 237));
 }
-
