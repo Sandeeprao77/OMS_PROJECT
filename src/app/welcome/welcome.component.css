@@ -1,7 +1,10 @@
 .hom1 {
 
-background-image: url("/images/bg3.jpg");
-  height:600px;
+background-image: url("/images/bg6.jpg");
+background-repeat: no-repeat;
+  background-size: cover;
+
+  height:485px;
   width:100%;
 }
 h1{

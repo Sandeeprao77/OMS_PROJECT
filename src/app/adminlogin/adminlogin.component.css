@@ -1,8 +1,8 @@
 .hom1 {
-  background-image: url("/images/bg4.jpg");
+  background-image: url("/images/bg6.jpg");
   background-repeat: no-repeat;
   background-size: cover;
-  height: 500px;
+  height: 485px;
 }
 .card {
   background-color: rgba(255, 255, 255, 0.2);
@@ -15,5 +15,5 @@
   max-width: 400px;
 }
 .btn {
-   background: linear-gradient(180deg, rgb(151, 191, 215), rgb(164, 164, 237));
+  background-color: whitesmoke;
 }

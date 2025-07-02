@@ -3,8 +3,8 @@
     <div class="col-md-10">
       <div class="card shadow">
         <form [formGroup]="profileForm">
-          <div class="card-header bg-primary text-white text-center">
-            <h4>Team Lead Profile</h4>
+          <div class="card-header  text-dark text-center">
+            <h2 class="mt-1"><b>Team Lead Profile</b></h2>
           </div>
           <div class="card-body">
             <div class="row">
@@ -45,12 +45,12 @@
                 </div>
                 <div class="text-center">
                   <button
-                    class="btn btn-success w-50"
+                    class="btn btn-success text-dark w-50"
                     data-bs-toggle="modal"
                     data-bs-target="#myEmptyModal"
                     (click)="editProfile(teamlead)"
                   >
-                    EDIT
+                    <b>EDIT</b>
                   </button>
                 </div>
               </div>
@@ -74,9 +74,9 @@
       <div class="modal-body">
         <div class="card">
           <form [formGroup]="editForm">
-            <div class="card-header bg-primary">
+            <div class="card-header ">
               <div class="row">
-                <h1 class="text-center text-white h-25 ">Team lead Details</h1>
+                <h1 class="text-center text-dark h-25 ">Team lead Details</h1>
               </div>
             </div>
             <div class="card-body">
@@ -113,12 +113,12 @@
               </div>
               <div class="text-center">
                 <button
-                  class="btn btn-success"
+                  class="btn btn-success text-dark"
                   data-bs-toggle="modal"
                   data-bs-target="#myEmptyModal"
                   (click)="update()"
                 >
-                  UPDATE
+                  <b>UPDATE</b>
                 </button>
               </div>
             </div>

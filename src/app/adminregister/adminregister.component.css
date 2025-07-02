@@ -2,7 +2,7 @@ a{
     padding-left: 163px;
 }
 .card-header{
-     background: linear-gradient(180deg, rgb(150, 200, 224), rgb(186, 186, 240));
+     background-color: whitesmoke;
     height: 90px;
     
 }
@@ -20,5 +20,5 @@ a{
   max-width: 500px;
 }
 .btn {
-  background: linear-gradient(180deg,  rgb(147, 188, 226), rgb(165, 165, 224));
+  background-color: whitesmoke;
 }
