@@ -20,6 +20,7 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class EmployeeregisterComponent implements OnInit {
   employeeregisterForm!: FormGroup;
+  formError: string = '';
   tid: any;
   constructor(
     private fb: FormBuilder,
@@ -55,17 +56,13 @@ export class EmployeeregisterComponent implements OnInit {
     });
   }
   register() {
+    this.formError = '';
     if (this.employeeregisterForm.invalid) {
-      this.toastr.warning(
-        'Please fill all required fields correctly.',
-        'Warning',
-        {
-          positionClass: 'toast-top-center',
-        }
-      );
+      this.employeeregisterForm.markAllAsTouched();
+      this.toastr.warning('Please enter valid Email and Password', 'Warning');
+      this.formError = 'Please enter valid Email and Password.';
       return;
     }
-
     this.employeeservice
       .postemployeeregister(this.employeeregisterForm.value)
       .subscribe({

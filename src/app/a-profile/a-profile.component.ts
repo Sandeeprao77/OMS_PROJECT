@@ -9,6 +9,7 @@ import {
 } from '@angular/forms';
 import { AdminserviceService } from '../adminservice.service';
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-a-profile',
@@ -24,7 +25,8 @@ export class AProfileComponent implements OnInit {
   constructor(
     private fb: FormBuilder,
     private adminservice: AdminserviceService,
-    private router: Router
+    private router: Router,
+    private toastr:ToastrService
   ) {}
 
   ngOnInit(): void {
@@ -75,12 +77,27 @@ export class AProfileComponent implements OnInit {
     console.log(this.editForm.value);
   }
   update() {
-    console.log(this.aid, this.editForm.value);
-    this.adminservice
-      .updateprofile(this.aid, this.editForm.value)
-      .subscribe((res: any) => {
-        console.log(res, 'profile updated');
-        window.location.reload();
-      });
+  if (this.editForm.invalid) {
+    this.toastr.warning('Please fill all required fields', 'Warning', {
+      positionClass: 'toast-top-center',
+    });
+    return;
   }
+
+  this.adminservice.updateprofile(this.aid, this.editForm.value).subscribe({
+    next: (res: any) => {
+      this.toastr.success('Profile updated successfully!', 'Success', {
+        positionClass: 'toast-top-center',
+      });
+      window.location.reload();
+    },
+    error: (err) => {
+      console.error(err);
+      this.toastr.error('Profile update failed!', 'Error', {
+        positionClass: 'toast-top-center',
+      });
+    }
+  });
+}
+
 }

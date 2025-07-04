@@ -8,6 +8,7 @@ import {
   Validators,
 } from '@angular/forms';
 import { TeamleadService } from '../teamlead.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-tl-profile',
@@ -22,7 +23,8 @@ export class TlProfileComponent implements OnInit {
   tid: any;
   constructor(
     private fb: FormBuilder,
-    private teamleadservice: TeamleadService
+    private teamleadservice: TeamleadService,
+    private toastr:ToastrService
   ) {}
   ngOnInit(): void {
     const t = JSON.parse(localStorage.getItem('teamlead') || '{}');
@@ -65,13 +67,29 @@ export class TlProfileComponent implements OnInit {
     });
     console.log(this.editForm.value);
   }
-  update() {
-    console.log(this.tid, this.editForm.value);
-    this.teamleadservice
-      .updateprofile(this.tid, this.editForm.value)
-      .subscribe((res: any) => {
-        console.log(res, 'Profile updated');
-        window.location.reload();
-      });
+ update() {
+  if (this.editForm.invalid) {
+    this.toastr.warning('Please fill all required fields', 'Warning', {
+      positionClass: 'toast-top-center',
+    });
+    return;
   }
+
+  this.teamleadservice.updateprofile(this.tid, this.editForm.value).subscribe({
+    next: (res: any) => {
+      console.log(res, 'Profile updated');
+      this.toastr.success('Profile updated successfully!', 'Success', {
+        positionClass: 'toast-top-center',
+      });
+      window.location.reload();
+    },
+    error: (err) => {
+      console.error(err);
+      this.toastr.error('Profile update failed!', 'Error', {
+        positionClass: 'toast-top-center',
+      });
+    }
+  });
+}
+
 }

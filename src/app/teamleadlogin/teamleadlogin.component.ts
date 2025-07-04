@@ -20,6 +20,7 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class TeamleadloginComponent implements OnInit {
   loginForm!: FormGroup;
+  formError: string = '';
   constructor(
     private fb: FormBuilder,
     private teamleadservice: TeamleadService,
@@ -39,10 +40,11 @@ export class TeamleadloginComponent implements OnInit {
     });
   }
   login() {
+    this.formError = '';
     if (this.loginForm.invalid) {
-      this.toastr.warning('Please enter valid Email and Password', 'Warning', {
-        positionClass: 'toast-top-center',
-      });
+      this.loginForm.markAllAsTouched();
+      this.toastr.warning('Please enter valid Email and Password', 'Warning');
+      this.formError = 'Please enter valid Email and Password.';
       return;
     }
 

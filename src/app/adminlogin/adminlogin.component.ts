@@ -19,6 +19,7 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class AdminloginComponent implements OnInit {
   loginForm!: FormGroup;
+  formError: string = '';
   constructor(
     private fb: FormBuilder,
     private adminservice: AdminserviceService,
@@ -39,8 +40,11 @@ export class AdminloginComponent implements OnInit {
   }
 
   login() {
+    this.formError = '';
     if (this.loginForm.invalid) {
+      this.loginForm.markAllAsTouched();
       this.toastr.warning('Please enter valid Email and Password', 'Warning');
+      this.formError = 'Please enter valid Email and Password.';
       return;
     }
 

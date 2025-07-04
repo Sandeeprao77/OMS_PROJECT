@@ -19,6 +19,7 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class AdminregisterComponent implements OnInit {
   adminregisterForm!: FormGroup;
+  formError: string = '';
   sid: any;
   constructor(
     private fb: FormBuilder,
@@ -54,10 +55,11 @@ export class AdminregisterComponent implements OnInit {
     });
   }
   register() {
+    this.formError = '';
     if (this.adminregisterForm.invalid) {
-      this.toastr.warning('Please fill out the form correctly.', 'Warning', {
-        positionClass: 'toast-top-center',
-      });
+      this.adminregisterForm.markAllAsTouched();
+      this.toastr.warning('Please enter valid Email and Password', 'Warning');
+      this.formError = 'Please enter valid Email and Password.';
       return;
     }
     this.adminservice

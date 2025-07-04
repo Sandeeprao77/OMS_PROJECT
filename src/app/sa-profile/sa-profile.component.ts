@@ -9,6 +9,7 @@ import {
 } from '@angular/forms';
 import { Router } from '@angular/router';
 import { SuperadminserviceService } from '../superadminservice.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-sa-profile',
@@ -24,7 +25,8 @@ export class SaProfileComponent implements OnInit {
   constructor(
     private fb: FormBuilder,
     private router: Router,
-    private superadminservice: SuperadminserviceService
+    private superadminservice: SuperadminserviceService,
+    private toastr:ToastrService
   ) {}
   ngOnInit(): void {
     const s = JSON.parse(localStorage.getItem('superadmin') || '{}');

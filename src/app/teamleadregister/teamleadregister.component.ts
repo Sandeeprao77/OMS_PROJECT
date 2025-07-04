@@ -20,6 +20,7 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class TeamleadregisterComponent implements OnInit {
   tlregisterForm!: FormGroup;
+  formError: string = '';
   aid: any;
   constructor(
     private fb: FormBuilder,
@@ -37,7 +38,7 @@ export class TeamleadregisterComponent implements OnInit {
         '',
         [
           Validators.required,
-          Validators.pattern('[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,}$'),
+          Validators.pattern('[a-z0-9._%+-]+@[a-z0-9.-]+\\.com$'),
         ],
       ],
       TL_Id: ['', [Validators.required, Validators.minLength(3)]],
@@ -54,10 +55,11 @@ export class TeamleadregisterComponent implements OnInit {
     });
   }
   register() {
+    this.formError = '';
     if (this.tlregisterForm.invalid) {
-      this.toastr.warning('Please fill all fields correctly.', 'Warning', {
-        positionClass: 'toast-top-center',
-      });
+      this.tlregisterForm.markAllAsTouched();
+      this.toastr.warning('Please enter valid Email and Password', 'Warning');
+      this.formError = 'Please enter valid Email and Password.';
       return;
     }
 

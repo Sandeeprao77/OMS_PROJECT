@@ -9,6 +9,7 @@ import {
 } from '@angular/forms';
 import { EmployeeserviceService } from '../employeeservice.service';
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-emp-profile',
@@ -25,7 +26,8 @@ export class EmpProfileComponent implements OnInit {
   constructor(
     private fb: FormBuilder,
     private employeeservice: EmployeeserviceService,
-    private router: Router
+    private router: Router,
+    private toastr:ToastrService
   ) {}
   ngOnInit(): void {
     const e = JSON.parse(localStorage.getItem('employee') || '{}');
@@ -74,12 +76,28 @@ export class EmpProfileComponent implements OnInit {
     console.log(this.editForm.value);
   }
   update() {
-    console.log(this.eid, this.editForm.value);
-    this.employeeservice
-      .updateprofile(this.eid, this.editForm.value)
-      .subscribe((res: any) => {
-        console.log(res, 'profile updated');
-        window.location.reload();
-      });
+  if (this.editForm.invalid) {
+    this.toastr.warning('Please fill all required fields', 'Warning', {
+      positionClass: 'toast-top-center',
+    });
+    return;
   }
+
+  this.employeeservice.updateprofile(this.eid, this.editForm.value).subscribe({
+    next: (res: any) => {
+      console.log(res, 'profile updated');
+      this.toastr.success('Profile updated successfully!', 'Success', {
+        positionClass: 'toast-top-center',
+      });
+      window.location.reload();
+    },
+    error: (err) => {
+      console.error(err);
+      this.toastr.error('Profile update failed!', 'Error', {
+        positionClass: 'toast-top-center',
+      });
+    }
+  });
+}
+
 }

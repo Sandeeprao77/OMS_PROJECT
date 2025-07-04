@@ -2,7 +2,7 @@
   background-image: url("/images/bg6.jpg");
   background-repeat: no-repeat;
   background-size: cover;
-  height: 480px;
+  height: auto;
   width: 100%;
 }
 h1 {
@@ -13,10 +13,10 @@ h1 {
   background-color: transparent;
   backdrop-filter: blur(10px);
   border-radius: 12px;
-
   padding: 2rem;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
   color: #000;
   width: 100%;
   max-width: 500px;
+  
 }
