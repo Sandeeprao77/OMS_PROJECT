@@ -13,7 +13,9 @@
             <div class="card-body">
               <div class="row">
                 <div>
-                  <label for="" class="form-label text-dark"><b>Emp_Mail</b></label>
+                  <label for="" class="form-label text-dark"
+                    ><b>Emp_Mail</b></label
+                  >
                   <input
                     type="text"
                     name=""
@@ -27,14 +29,14 @@
                     "
                     style="color: red"
                   >
-                   <small
-                    *ngIf="loginForm.get('emp_mail')?.errors?.['required']"
-                    >Email is required.</small
-                  >
-                  <small
-                    *ngIf="loginForm.get('emp_mail')?.errors?.['email']"
-                    >Enter a valid email.</small
-                  >
+                    <small
+                      *ngIf="loginForm.get('emp_mail')?.errors?.['required']"
+                      >Email is required.</small
+                    >
+                    <small
+                      *ngIf="loginForm.get('emp_mail')?.errors?.['pattern']"
+                      >Enter a valid email.</small
+                    >
                   </div>
                 </div>
                 <div>
@@ -51,7 +53,8 @@
                     *ngIf="
                       loginForm.get('emp_password')?.touched &&
                       loginForm.get('emp_password')?.invalid
-                    "style="color: red;"
+                    "
+                    style="color: red"
                   >
                     <div
                       *ngIf="loginForm.get('emp_password')?.errors?.['required']"
@@ -70,7 +73,7 @@
                     </div>
                   </div>
                 </div>
-                <div class="text-center ">
+                <div class="text-center">
                   <button
                     class="btn btn-success text-dark btn w-50 p-2 mt-4"
                     (click)="login()"

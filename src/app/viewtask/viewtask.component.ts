@@ -9,6 +9,7 @@ import {
 } from '@angular/forms';
 import { TeamleadService } from '../teamlead.service';
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-viewtask',
@@ -23,7 +24,8 @@ export class ViewtaskComponent implements OnInit {
   constructor(
     private fb: FormBuilder,
     private teamleadservice: TeamleadService,
-    private router: Router
+    private router: Router,
+    private toastr:ToastrService
   ) {}
   ngOnInit(): void {
     this.editForm = this.fb.group({
@@ -46,17 +48,27 @@ export class ViewtaskComponent implements OnInit {
   }
 
   updateTask() {
-    console.log(this.tid, this.editForm.value);
-    this.teamleadservice
-      .taskupdate(this.tid, this.editForm.value)
-      .subscribe((res: any) => {
-        console.log('Task updated', res);
-        window.location.reload();
-        this.tasklist();
-
-        // this.teamleadservice
-        //   .tasklist()
-        //   .subscribe((data) => (this.taskdata = data));
+    if (this.editForm.invalid) {
+      this.toastr.warning('Please select a valid task status.', 'Warning', {
+        positionClass: 'toast-top-center',
       });
+      return;
+    }
+
+    this.teamleadservice.taskupdate(this.tid, this.editForm.value).subscribe({
+      next: (res: any) => {
+        this.toastr.success('Task updated successfully!', 'Success', {
+          positionClass: 'toast-top-center',
+        });
+        this.tasklist(); 
+        window.location.reload();
+      },
+      error: (err) => {
+        this.toastr.error('Failed to update task.', 'Error', {
+          positionClass: 'toast-top-center',
+        });
+        console.error(err);
+      }
+    });
   }
 }

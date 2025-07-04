@@ -101,6 +101,11 @@
                     *ngIf="adminregisterForm.get('Id')?.errors?.['required']"
                     >Id is Required</small
                   >
+                  <small
+                    *ngIf="adminregisterForm.get('Id')?.errors?.['minlength']"
+                    >ID atleast 3 digits</small
+                  >
+
                   </div>
               </div>
               <div>
@@ -154,7 +159,7 @@
                   *ngIf="
                     adminregisterForm.get('Password')?.touched &&
                     adminregisterForm.get('Password')?.invalid
-                  "
+                  " style="color: red;"
                 >
                   <div
                     *ngIf="adminregisterForm.get('Password')?.errors?.['required']"

@@ -4,6 +4,7 @@ import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } 
 import { Router, RouterLink } from '@angular/router';
 import { TeamleadService } from '../teamlead.service';
 import { validateHeaderValue } from 'node:http';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-teamleadlogin',
@@ -13,7 +14,7 @@ import { validateHeaderValue } from 'node:http';
 })
 export class TeamleadloginComponent implements OnInit{
   loginForm!:FormGroup;
-  constructor(private fb:FormBuilder,private teamleadservice:TeamleadService,private router:Router){}
+  constructor(private fb:FormBuilder,private teamleadservice:TeamleadService,private router:Router,private toastr:ToastrService){}
   ngOnInit(): void {
     this.loginForm=this.fb.group({
       TL_Mail:['',[ Validators.required,Validators.pattern('[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,}$')]],
@@ -21,15 +22,29 @@ export class TeamleadloginComponent implements OnInit{
     })
     
   }
-  login(){
-    if(this.loginForm.value)
-      this.teamleadservice.postteamleadlogin(this.loginForm.value).subscribe((res:any)=>{
-    console.log(res,'success')
-    localStorage.setItem('teamlead', JSON.stringify(res));
-    this.router.navigateByUrl('teamlead-dashboard');
-    
-    
-  })
-  }
+  login() {
+    if (this.loginForm.invalid) {
+      this.toastr.warning('Please enter valid Email and Password', 'Warning', {
+        positionClass: 'toast-top-center',
+      });
+      return;
+    }
 
+    this.teamleadservice.postteamleadlogin(this.loginForm.value).subscribe({
+      next: (res: any) => {
+        localStorage.setItem('teamlead', JSON.stringify(res));
+        this.toastr.success('Login successful!', 'Success', {
+          positionClass: 'toast-top-center',
+        });
+       
+        this.router.navigateByUrl('teamlead-dashboard');
+      },
+      error: (err) => {
+        this.toastr.error('Login failed. Please check your credentials.', 'Error', {
+          positionClass: 'toast-top-center',
+        });
+        console.error(err);
+      }
+    });
+  }
 }

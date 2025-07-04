@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { TeamleadService } from '../teamlead.service';
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-edittask',
@@ -17,7 +18,8 @@ export class EdittaskComponent implements OnInit{
   constructor(
     private fb: FormBuilder,
     private teamleadservice: TeamleadService,
-    private router: Router
+    private router: Router,
+    private toastr:ToastrService
   ) {}
   ngOnInit(): void {
     this.editForm = this.fb.group({
@@ -46,26 +48,47 @@ export class EdittaskComponent implements OnInit{
   }
 
   updateTask() {
-    console.log(this.tid, this.editForm.value)
-    this.teamleadservice
-      .taskupdate(this.tid,this.editForm.value)
-      .subscribe((res: any) => {
-        console.log('Task updated', res);
-        window.location.reload();
-        this.tasklist();
-
-        // this.teamleadservice
-        //   .tasklist()
-        //   .subscribe((data) => (this.taskdata = data));
+    if (this.editForm.invalid) {
+      this.toastr.warning('Please fill all required fields.', 'Warning', {
+        positionClass: 'toast-top-center',
       });
+      return;
+    }
+
+    this.teamleadservice.taskupdate(this.tid, this.editForm.value).subscribe({
+      next: (res: any) => {
+        this.toastr.success('Task updated successfully!', 'Success', {
+          positionClass: 'toast-top-center',
+        });
+       window.location.reload();
+      },
+      error: (err) => {
+        this.toastr.error('Failed to update task.', 'Error', {
+          positionClass: 'toast-top-center',
+        });
+        console.error(err);
+      }
+    });
   }
-  deleteTask(id:string){
-    if(confirm('are you sure you want to delete this task')){
-      this.teamleadservice.taskdelete(id).subscribe((res:any)=>{
-        console.log(res,'task deleted');
-        window.location.reload();
-      })
+
+  deleteTask(id: string) {
+    if (confirm('Are you sure you want to delete this task?')) {
+      this.teamleadservice.taskdelete(id).subscribe({
+        next: (res: any) => {
+          this.toastr.success('Task deleted successfully!', 'Success', {
+            positionClass: 'toast-top-center',
+          });
+          window.location.reload();
+        },
+        error: (err) => {
+          this.toastr.error('Failed to delete task.', 'Error', {
+            positionClass: 'toast-top-center',
+          });
+          console.error(err);
+        }
+      });
     }
   }
+
 }
 
