@@ -25,7 +25,7 @@ export class ViewteamleadComponent implements OnInit {
     private fb: FormBuilder,
     private teamleadserice: TeamleadService,
     private router: Router,
-    private toastr:ToastrService
+    private toastr: ToastrService
   ) {}
   ngOnInit(): void {
     this.editForm = this.fb.group({

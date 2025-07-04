@@ -4,17 +4,15 @@ import { Router, RouterLink, RouterOutlet } from '@angular/router';
 
 @Component({
   selector: 'app-teamlead-dashboard',
-  imports: [RouterLink,RouterOutlet],
+  imports: [RouterLink, RouterOutlet],
   templateUrl: './teamlead-dashboard.component.html',
-  styleUrl: './teamlead-dashboard.component.css'
+  styleUrl: './teamlead-dashboard.component.css',
 })
-export class TeamleadDashboardComponent implements OnInit{
-  constructor(private router:Router){}
-  ngOnInit(): void {
-    
+export class TeamleadDashboardComponent implements OnInit {
+  constructor(private router: Router) {}
+  ngOnInit(): void {}
+  logout() {
+    localStorage.removeItem('teamlead');
+    this.router.navigateByUrl('teamleadlogin');
   }
-logout(){
-  localStorage.removeItem('teamlead');
-  this.router.navigateByUrl('teamleadlogin')
-}
 }

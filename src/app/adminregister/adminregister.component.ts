@@ -54,29 +54,27 @@ export class AdminregisterComponent implements OnInit {
     });
   }
   register() {
-  if (this.adminregisterForm.invalid) {
-    this.toastr.warning('Please fill out the form correctly.', 'Warning', {
-      positionClass: 'toast-top-center'
-    });
-    return;
+    if (this.adminregisterForm.invalid) {
+      this.toastr.warning('Please fill out the form correctly.', 'Warning', {
+        positionClass: 'toast-top-center',
+      });
+      return;
+    }
+    this.adminservice
+      .postadminregister(this.adminregisterForm.value)
+      .subscribe({
+        next: (res: any) => {
+          this.toastr.success('Admin registered successfully!', 'Success', {
+            positionClass: 'toast-top-center',
+          });
+          this.router.navigateByUrl('sp_dashboard/viewadmin');
+        },
+        error: (err) => {
+          this.toastr.error('Failed to register admin.', 'Error', {
+            positionClass: 'toast-top-center',
+          });
+          console.error(err);
+        },
+      });
   }
-
-  this.adminservice
-    .postadminregister(this.adminregisterForm.value)
-    .subscribe({
-      next: (res: any) => {
-        this.toastr.success('Admin registered successfully!', 'Success', {
-          positionClass: 'toast-top-center'
-        });
-        this.router.navigateByUrl('sp_dashboard/viewadmin');
-      },
-      error: (err) => {
-        this.toastr.error('Failed to register admin.', 'Error', {
-          positionClass: 'toast-top-center'
-        });
-        console.error(err);
-      },
-    });
-}
-
 }

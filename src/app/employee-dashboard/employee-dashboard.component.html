@@ -1,6 +1,8 @@
-<nav class="navbar navbar-expand-md bg-white sticky-top navbar-dark px-4 custom_navbar bg-light">
+<nav
+  class="navbar navbar-expand-md bg-white sticky-top navbar-dark px-4 custom_navbar bg-light"
+>
   <a class="navbar-brand text-dark company_name fw-bold" routerLink="/"
-    >VITA <small style="font-size: 30px;">OMS</small></a
+    >VITA <small style="font-size: 30px">OMS</small></a
   >
   <button
     class="navbar-toggler"
@@ -21,8 +23,11 @@
           class="nav-link text-dark"
           routerLink="emp-profile"
           routerLinkActive="active"
-          ><i class="bi bi-person-circle" style="font-size: 30px; font-weight: bolder; "></i></a
-        >
+          ><i
+            class="bi bi-person-circle"
+            style="font-size: 30px; font-weight: bolder"
+          ></i
+        ></a>
       </li>
       <li class="nav-item">
         <a
@@ -30,26 +35,30 @@
           routerLink="/"
           routerLinkActive="active"
           (click)="logout()"
-          ><i class="bi bi-box-arrow-right" style="font-size: 30px; font-weight: bolder; "></i></a
-        >
+          ><i
+            class="bi bi-box-arrow-right"
+            style="font-size: 30px; font-weight: bolder"
+          ></i
+        ></a>
       </li>
     </ul>
   </div>
 </nav>
 <div class="row back">
-  <div class="col-sm-2 ">
+  <div class="col-sm-2">
     <div class="card card1 mt-1 border-0 vh-100">
-        <div class="card-header">
-            <h2>Works!</h2>
-        </div>
-        <div class="display-flex p-2">
-            <ul class="navbar-nav">
-                
-                <li class="nav-item">
-                    <a class="nav-link text-dark" routerLink="viewtask"><b>View Task</b></a>
-                </li>
-            </ul>
-        </div>
+      <div class="card-header">
+        <h2>Works!</h2>
+      </div>
+      <div class="display-flex p-2">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link text-dark" routerLink="viewtask"
+              ><b>View Task</b></a
+            >
+          </li>
+        </ul>
+      </div>
     </div>
   </div>
   <div class="col-sm-10">

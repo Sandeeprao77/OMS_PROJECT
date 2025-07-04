@@ -25,7 +25,7 @@ export class TeamleadregisterComponent implements OnInit {
     private fb: FormBuilder,
     private teamleadservice: TeamleadService,
     private router: Router,
-    private toastr:ToastrService
+    private toastr: ToastrService
   ) {}
   ngOnInit(): void {
     const a = JSON.parse(localStorage.getItem('admin') || '{}');
@@ -54,29 +54,30 @@ export class TeamleadregisterComponent implements OnInit {
     });
   }
   register() {
-  if (this.tlregisterForm.invalid) {
-    this.toastr.warning('Please fill all fields correctly.', 'Warning', {
-      positionClass: 'toast-top-center',
-    });
-    return;
+    if (this.tlregisterForm.invalid) {
+      this.toastr.warning('Please fill all fields correctly.', 'Warning', {
+        positionClass: 'toast-top-center',
+      });
+      return;
+    }
+
+    this.teamleadservice
+      .postteamleadregister(this.tlregisterForm.value)
+      .subscribe({
+        next: (res: any) => {
+          this.toastr.success('Team Lead registered successfully!', 'Success', {
+            positionClass: 'toast-top-center',
+          });
+          console.log(this.tlregisterForm.value, 'register successfully');
+          this.tlregisterForm.reset();
+          this.router.navigateByUrl('viewteamlead');
+        },
+        error: (err) => {
+          this.toastr.error('Registration failed.', 'Error', {
+            positionClass: 'toast-top-center',
+          });
+          console.error(err);
+        },
+      });
   }
-
-  this.teamleadservice.postteamleadregister(this.tlregisterForm.value).subscribe({
-    next: (res: any) => {
-      this.toastr.success('Team Lead registered successfully!', 'Success', {
-        positionClass: 'toast-top-center',
-      });
-      console.log(this.tlregisterForm.value, 'register successfully');
-      this.tlregisterForm.reset();
-      this.router.navigateByUrl('viewteamlead');
-    },
-    error: (err) => {
-      this.toastr.error('Registration failed.', 'Error', {
-        positionClass: 'toast-top-center',
-      });
-      console.error(err);
-    },
-  });
-}
-
 }

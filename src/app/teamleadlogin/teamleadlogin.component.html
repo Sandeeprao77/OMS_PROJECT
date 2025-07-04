@@ -13,7 +13,9 @@
             <div class="card-body">
               <div class="row">
                 <div>
-                  <label for="" class="form-label text-dark"><b>TL_Mail</b></label>
+                  <label for="" class="form-label text-dark"
+                    ><b>TL_Mail</b></label
+                  >
                   <input
                     type="text"
                     name=""
@@ -25,7 +27,8 @@
                     *ngIf="
                       loginForm.get('TL_Mail')?.invalid &&
                       loginForm.get('TL_Mail')?.touched
-                    "style="color: red;"
+                    "
+                    style="color: red"
                   >
                     <small
                       *ngIf="loginForm.get('TL_Mail')?.errors?.['required']"
@@ -50,7 +53,8 @@
                     *ngIf="
                       loginForm.get('TL_Password')?.invalid &&
                       loginForm.get('TL_Password')?.touched
-                    "style="color: red;"
+                    "
+                    style="color: red"
                   >
                     <small
                       *ngIf="loginForm.get('TL_Password')?.errors?.['required']"
@@ -67,7 +71,7 @@
                     class="btn btn-success text-dark btn w-50 p-2 mt-4"
                     (click)="login()"
                   >
-                   <b>Sign-in</b>
+                    <b>Sign-in</b>
                   </button>
                 </div>
               </div>

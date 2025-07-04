@@ -9,16 +9,11 @@
   max-width: 500px;
   height: 150px;
 }
-.custom_navbar {
-  /* height: 100px; */
-  background-color: black;
-}
 .company_name {
   font-size: 60px;
 }
-.back{
+.back {
   background-image: url("/images/bg6.jpg");
   background-repeat: no-repeat;
   background-size: cover;
-  
 }

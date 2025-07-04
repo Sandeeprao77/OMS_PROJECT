@@ -12,7 +12,9 @@
           <div class="card-body">
             <div class="row">
               <div>
-                <label for="" class="form-label text-dark"><b>SA_Mail</b></label>
+                <label for="" class="form-label text-dark"
+                  ><b>SA_Mail</b></label
+                >
                 <input
                   type="text"
                   name=""
@@ -23,7 +25,8 @@
                   *ngIf="
                     loginForm.get('super_admin_mail')?.invalid &&
                     loginForm.get('super_admin_mail')?.touched
-                  "style="color: red;"
+                  "
+                  style="color: red"
                 >
                   <small
                     *ngIf="loginForm.get('super_admin_mail')?.errors?.['required']"
@@ -36,7 +39,9 @@
                 </div>
               </div>
               <div>
-                <label for="" class="form-label text-dark"><b>SA_Password</b></label>
+                <label for="" class="form-label text-dark"
+                  ><b>SA_Password</b></label
+                >
                 <input
                   type="text"
                   name=""
@@ -47,7 +52,8 @@
                   *ngIf="
                     loginForm.get('super_admin_password')?.invalid &&
                     loginForm.get('super_admin_password')?.touched
-                  "style="color: red;"
+                  "
+                  style="color: red"
                 >
                   <small
                     *ngIf="loginForm.get('super_admin_password')?.errors?.['required']"
@@ -58,15 +64,13 @@
                     >Password atleast 6 characters</small
                   >
                 </div>
-
-
               </div>
               <div class="text-center">
                 <button
                   class="btn btn-success text-dark btn w-50 p-2 mt-4"
                   (click)="login()"
                 >
-                 <b>Sign-in</b>
+                  <b>Sign-in</b>
                 </button>
               </div>
             </div>

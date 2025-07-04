@@ -1,17 +1,21 @@
-<div class="container-fluid mt-2 ">
+<div class="container-fluid mt-2">
   <div class="row">
     <div class="col-sm-6 m-auto">
-      <div class="card ">
+      <div class="card">
         <form [formGroup]="employeeregisterForm">
           <div class="card-header">
             <div class="row">
-              <h1 class="text-center text-danger mt-2"><b>Employee Register</b></h1>
+              <h1 class="text-center text-danger mt-2">
+                <b>Employee Register</b>
+              </h1>
             </div>
           </div>
           <div class="card-body">
             <div class="row">
               <div>
-                <label for="" class="form-label text-dark"><b>Employee Name</b></label>
+                <label for="" class="form-label text-dark"
+                  ><b>Employee Name</b></label
+                >
                 <input
                   type="text"
                   name=""
@@ -25,7 +29,7 @@
                   "
                   style="color: red"
                 >
-                <div
+                  <div
                     *ngIf="employeeregisterForm.get('emp_name')?.errors?.['required']"
                   >
                     Name is required
@@ -38,7 +42,9 @@
                 </div>
               </div>
               <div>
-                <label for="" class="form-label text-dark"> <b>Employee Id</b></label>
+                <label for="" class="form-label text-dark">
+                  <b>Employee Id</b></label
+                >
                 <input
                   type="text"
                   name=""
@@ -52,17 +58,23 @@
                   "
                   style="color: red"
                 >
-                <small  *ngIf="employeeregisterForm.get('emp_id')?.errors?.['required']">
-                  Id is required
-                </small>
-                  <small *ngIf="employeeregisterForm.get('emp_id')?.errors?.['minlength']">
+                  <small
+                    *ngIf="employeeregisterForm.get('emp_id')?.errors?.['required']"
+                  >
+                    Id is required
+                  </small>
+                  <small
+                    *ngIf="employeeregisterForm.get('emp_id')?.errors?.['minlength']"
+                  >
                     Enter valid Id && Atleast 3 digits
                   </small>
                 </div>
               </div>
 
               <div>
-                <label for="" class="form-label text-dark"> <b>Employee Mail</b></label>
+                <label for="" class="form-label text-dark">
+                  <b>Employee Mail</b></label
+                >
                 <input
                   type="text"
                   name=""
@@ -73,7 +85,8 @@
                   *ngIf="
                     employeeregisterForm.get('emp_mail')?.touched &&
                     employeeregisterForm.get('emp_mail')?.invalid
-                  "style="color: red;"
+                  "
+                  style="color: red"
                 >
                   <small
                     *ngIf="employeeregisterForm.get('emp_mail')?.errors?.['required']"
@@ -86,7 +99,9 @@
                 </div>
               </div>
               <div>
-                <label for="" class="form-label text-dark"> <b>Employee Mobile Number</b></label>
+                <label for="" class="form-label text-dark">
+                  <b>Employee Mobile Number</b></label
+                >
                 <input
                   type="text"
                   name=""
@@ -115,12 +130,13 @@
                   >
                     Must be 10 digits.
                   </div>
-                  
                 </div>
               </div>
 
               <div>
-                <label for="" class="form-label text-dark"><b>Employee Password</b></label>
+                <label for="" class="form-label text-dark"
+                  ><b>Employee Password</b></label
+                >
                 <input
                   type="text"
                   name=""
@@ -131,7 +147,8 @@
                   *ngIf="
                     employeeregisterForm.get('emp_password')?.touched &&
                     employeeregisterForm.get('emp_password')?.invalid
-                  "style="color:red;"
+                  "
+                  style="color: red"
                 >
                   <div
                     *ngIf="employeeregisterForm.get('emp_password')?.errors?.['required']"

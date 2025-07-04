@@ -45,7 +45,6 @@ export class TlProfileComponent implements OnInit {
       console.log(res);
       this.teamlead = res;
       console.log(this.teamlead, 'profile');
-
       this.profileForm.patchValue({
         TL_Name: this.teamlead.TL_Name,
         TL_Mail: this.teamlead.TL_Mail,
@@ -54,25 +53,25 @@ export class TlProfileComponent implements OnInit {
       });
     });
   }
-  editProfile(data:any){
-    console.log(data,'edit data');
-    this.tid=data._id;
-    console.log(this.tid,'tid');
+  editProfile(data: any) {
+    console.log(data, 'edit data');
+    this.tid = data._id;
+    console.log(this.tid, 'tid');
     this.editForm.patchValue({
-      TL_Name:data.TL_Name,
-      TL_Mail:data.TL_Mail,
-      TL_Id:data.TL_Id,
-      TL_Mobile_Number:data.TL_Mobile_Number
-
+      TL_Name: data.TL_Name,
+      TL_Mail: data.TL_Mail,
+      TL_Id: data.TL_Id,
+      TL_Mobile_Number: data.TL_Mobile_Number,
     });
     console.log(this.editForm.value);
-
   }
-  update(){
-    console.log(this.tid,this.editForm.value);
-    this.teamleadservice.updateprofile(this.tid,this.editForm.value).subscribe((res:any)=>{
-      console.log(res,'Profile updated')
-      window.location.reload();
-    })
+  update() {
+    console.log(this.tid, this.editForm.value);
+    this.teamleadservice
+      .updateprofile(this.tid, this.editForm.value)
+      .subscribe((res: any) => {
+        console.log(res, 'Profile updated');
+        window.location.reload();
+      });
   }
 }

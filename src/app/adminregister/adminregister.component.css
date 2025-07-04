@@ -1,19 +1,18 @@
-a{
-    padding-left: 163px;
+a {
+  padding-left: 163px;
 }
-.card-header{
-     background-color: whitesmoke;
-    height: 90px;
-    
+.card-header {
+  background-color: whitesmoke;
+  height: 90px;
 }
- .formbg{
-     background: linear-gradient(180deg,  rgb(185, 216, 244), rgb(178, 178, 248));
- }
- .card {
+.formbg {
+  background: linear-gradient(180deg, rgb(185, 216, 244), rgb(178, 178, 248));
+}
+.card {
   background-color: rgba(247, 237, 237, 0.2);
   /* backdrop-filter: blur(10px); */
   border-radius: 12px;
-  
+
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
   color: #000;
   width: 100%;

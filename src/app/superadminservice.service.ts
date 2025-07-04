@@ -3,18 +3,23 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class SuperadminserviceService {
-
-  constructor(private http:HttpClient) { }
-  postsuperadminlogin(data:any):Observable<any>{
-    return this.http.post("http://localhost:3003/superadmin/superadminlogin",data)
+  constructor(private http: HttpClient) {}
+  postsuperadminlogin(data: any): Observable<any> {
+    return this.http.post(
+      'http://localhost:3003/superadmin/superadminlogin',
+      data
+    );
   }
-  postsuperadminregister(data:any):Observable<any>{
-    return this.http.post("http://localhost:3003/superadmin/superadminregister",data)
+  postsuperadminregister(data: any): Observable<any> {
+    return this.http.post(
+      'http://localhost:3003/superadmin/superadminregister',
+      data
+    );
   }
-  getsaprofile(id:String):Observable<any>{
-    return this.http.get(`http://localhost:3003/superadmin/profilebyget/${id}`)
+  getsaprofile(id: String): Observable<any> {
+    return this.http.get(`http://localhost:3003/superadmin/profilebyget/${id}`);
   }
 }

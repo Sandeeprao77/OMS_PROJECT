@@ -56,41 +56,40 @@ export class ViewemployeeComponent implements OnInit {
   }
 
   updateEmployee() {
-  this.employeeservice.updateemployee(this.eid, this.editForm.value).subscribe({
-    next: (res: any) => {
-      this.toastr.success('Employee updated successfully!', 'Success', {
-        positionClass: 'toast-top-center',
+    this.employeeservice
+      .updateemployee(this.eid, this.editForm.value)
+      .subscribe({
+        next: (res: any) => {
+          this.toastr.success('Employee updated successfully!', 'Success', {
+            positionClass: 'toast-top-center',
+          });
+          window.location.reload();
+        },
+        error: (err) => {
+          this.toastr.error('Failed to update employee.', 'Error', {
+            positionClass: 'toast-top-center',
+          });
+          console.error(err);
+        },
       });
-     window.location.reload();
-    },
-    error: (err) => {
-      this.toastr.error('Failed to update employee.', 'Error', {
-        positionClass: 'toast-top-center',
-      });
-      console.error(err);
-    }
-  });
-}
+  }
 
   deleteEmployee(id: string) {
-  if (confirm('Are you sure you want to delete this employee?')) {
-    this.employeeservice.deleteemployee(id).subscribe({
-      next: (res: any) => {
-        this.toastr.success('Employee deleted successfully!', 'Success', {
-          positionClass: 'toast-top-center',
-
-        });
-        window.location.reload();
-        
-      },
-      error: (err) => {
-        this.toastr.error('Failed to delete employee.', 'Error', {
-          positionClass: 'toast-top-center',
-        });
-        console.error(err);
-      }
-    });
+    if (confirm('Are you sure you want to delete this employee?')) {
+      this.employeeservice.deleteemployee(id).subscribe({
+        next: (res: any) => {
+          this.toastr.success('Employee deleted successfully!', 'Success', {
+            positionClass: 'toast-top-center',
+          });
+          window.location.reload();
+        },
+        error: (err) => {
+          this.toastr.error('Failed to delete employee.', 'Error', {
+            positionClass: 'toast-top-center',
+          });
+          console.error(err);
+        },
+      });
+    }
   }
-}
-
 }

@@ -42,16 +42,12 @@ export class SaProfileComponent implements OnInit {
       console.log(res);
       this.superadmin = res;
       console.log(this.superadmin, 'profile');
-      
 
-
-    this.profileForm.patchValue({
-      super_admin_name: this.superadmin.super_admin_name,
-      super_admin_number: this.superadmin.super_admin_number,
-      super_admin_mail: this.superadmin.super_admin_mail,
+      this.profileForm.patchValue({
+        super_admin_name: this.superadmin.super_admin_name,
+        super_admin_number: this.superadmin.super_admin_number,
+        super_admin_mail: this.superadmin.super_admin_mail,
+      });
     });
-
-
-        });
   }
 }

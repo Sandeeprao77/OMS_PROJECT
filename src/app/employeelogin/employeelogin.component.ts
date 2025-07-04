@@ -23,7 +23,7 @@ export class EmployeeloginComponent implements OnInit {
     private fb: FormBuilder,
     private employeeservice: EmployeeserviceService,
     private router: Router,
-    private toastr:ToastrService
+    private toastr: ToastrService
   ) {}
   ngOnInit(): void {
     this.loginForm = this.fb.group({
@@ -38,33 +38,32 @@ export class EmployeeloginComponent implements OnInit {
     });
   }
   login() {
-  if (this.loginForm.invalid) {
-    this.toastr.warning('Please enter valid Email and Password', 'Warning', {
-      positionClass: 'toast-top-center',
-    });
-    return;
-  }
-
-  this.employeeservice.postemployeelogin(this.loginForm.value).subscribe({
-    next: (res: any) => {
-      localStorage.setItem('employee', JSON.stringify(res));
-      this.toastr.success('Login successful!', 'Success', {
+    if (this.loginForm.invalid) {
+      this.toastr.warning('Please enter valid Email and Password', 'Warning', {
         positionClass: 'toast-top-center',
       });
-      
-      this.router.navigateByUrl('employee-dashboard');
-    },
-    error: (err) => {
-      this.toastr.error(
-        'Login failed. Please check your credentials.',
-        'Error',
-        {
-          positionClass: 'toast-top-center',
-        }
-      );
-      console.error(err);
+      return;
     }
-  });
-}
 
+    this.employeeservice.postemployeelogin(this.loginForm.value).subscribe({
+      next: (res: any) => {
+        localStorage.setItem('employee', JSON.stringify(res));
+        this.toastr.success('Login successful!', 'Success', {
+          positionClass: 'toast-top-center',
+        });
+
+        this.router.navigateByUrl('employee-dashboard');
+      },
+      error: (err) => {
+        this.toastr.error(
+          'Login failed. Please check your credentials.',
+          'Error',
+          {
+            positionClass: 'toast-top-center',
+          }
+        );
+        console.error(err);
+      },
+    });
+  }
 }

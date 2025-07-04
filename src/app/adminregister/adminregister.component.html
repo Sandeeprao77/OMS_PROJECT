@@ -1,17 +1,21 @@
-<div class="container-fluid mt-1 back ">
+<div class="container-fluid mt-1 back">
   <div class="row">
     <div class="col-sm-6 m-auto">
-      <div class="card  border-0">
+      <div class="card border-0">
         <form [formGroup]="adminregisterForm">
           <div class="card-header border-0">
             <div class="row">
-              <h1 class="text-center text-danger mt-2"><b>Admin Register</b></h1>
+              <h1 class="text-center text-danger mt-2">
+                <b>Admin Register</b>
+              </h1>
             </div>
           </div>
           <div class="card-body">
             <div class="row">
               <div>
-                <label for="" class="form-label text-dark"><b>Admin Name</b></label>
+                <label for="" class="form-label text-dark"
+                  ><b>Admin Name</b></label
+                >
                 <input
                   type="text"
                   name=""
@@ -23,7 +27,8 @@
                   *ngIf="
                     adminregisterForm.get('Name')?.invalid &&
                     adminregisterForm.get('Name')?.touched
-                  "style="color: red;"
+                  "
+                  style="color: red"
                 >
                   <small
                     *ngIf="adminregisterForm.get('Name')?.errors?.['required']"
@@ -36,7 +41,9 @@
                 </div>
               </div>
               <div>
-                <label for="" class="form-label text-dark"> <b>Admin Mail</b></label>
+                <label for="" class="form-label text-dark">
+                  <b>Admin Mail</b></label
+                >
                 <input
                   type="text"
                   name=""
@@ -74,17 +81,20 @@
                   *ngIf="
                     adminregisterForm.get('Designation')?.invalid &&
                     adminregisterForm.get('Designation')?.touched
-                  "style="color: red;"
+                  "
+                  style="color: red"
                 >
                   <small
                     *ngIf="adminregisterForm.get('Designation')?.errors?.['required']"
                     >Designation is Required</small
                   >
-                  </div>
+                </div>
               </div>
 
               <div>
-                <label for="" class="form-label text-dark"><b>Admin Id</b></label>
+                <label for="" class="form-label text-dark"
+                  ><b>Admin Id</b></label
+                >
                 <input
                   type="text"
                   name=""
@@ -95,7 +105,8 @@
                   *ngIf="
                     adminregisterForm.get('Id')?.invalid &&
                     adminregisterForm.get('Id')?.touched
-                  "style="color: red;"
+                  "
+                  style="color: red"
                 >
                   <small
                     *ngIf="adminregisterForm.get('Id')?.errors?.['required']"
@@ -105,8 +116,7 @@
                     *ngIf="adminregisterForm.get('Id')?.errors?.['minlength']"
                     >ID atleast 3 digits</small
                   >
-
-                  </div>
+                </div>
               </div>
               <div>
                 <label for="" class="form-label text-dark"
@@ -140,10 +150,7 @@
                   >
                     Must be 10 digits.
                   </div>
-                  
                 </div>
-
-
               </div>
               <div>
                 <label for="" class="form-label text-dark"
@@ -155,11 +162,12 @@
                   class="form-control p-2"
                   formControlName="Password"
                 />
-                 <div
+                <div
                   *ngIf="
                     adminregisterForm.get('Password')?.touched &&
                     adminregisterForm.get('Password')?.invalid
-                  " style="color: red;"
+                  "
+                  style="color: red"
                 >
                   <div
                     *ngIf="adminregisterForm.get('Password')?.errors?.['required']"
@@ -177,8 +185,6 @@
                     Atleast 6 digits
                   </div>
                 </div>
-
-
               </div>
 
               <div class="text-center">

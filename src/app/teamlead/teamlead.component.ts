@@ -41,7 +41,7 @@ export class TeamleadComponent implements OnInit {
   //   })
 
   // }
-   task() {
+  task() {
     if (this.taskForm.invalid) {
       this.toastr.warning('Please fill all required fields.', 'Warning', {
         positionClass: 'toast-top-center',
@@ -54,7 +54,7 @@ export class TeamleadComponent implements OnInit {
         this.toastr.success('Task added successfully!', 'Success', {
           positionClass: 'toast-top-center',
         });
-        this.router.navigateByUrl('viewtask'); 
+        this.router.navigateByUrl('viewtask');
       },
       error: (err) => {
         this.toastr.error('Failed to add task.', 'Error', {
@@ -64,5 +64,4 @@ export class TeamleadComponent implements OnInit {
       },
     });
   }
-
 }

@@ -25,7 +25,7 @@ export class ViewtaskComponent implements OnInit {
     private fb: FormBuilder,
     private teamleadservice: TeamleadService,
     private router: Router,
-    private toastr:ToastrService
+    private toastr: ToastrService
   ) {}
   ngOnInit(): void {
     this.editForm = this.fb.group({
@@ -60,7 +60,7 @@ export class ViewtaskComponent implements OnInit {
         this.toastr.success('Task updated successfully!', 'Success', {
           positionClass: 'toast-top-center',
         });
-        this.tasklist(); 
+        this.tasklist();
         window.location.reload();
       },
       error: (err) => {
@@ -68,7 +68,7 @@ export class ViewtaskComponent implements OnInit {
           positionClass: 'toast-top-center',
         });
         console.error(err);
-      }
+      },
     });
   }
 }

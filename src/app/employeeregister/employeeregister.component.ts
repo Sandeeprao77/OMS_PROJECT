@@ -25,7 +25,7 @@ export class EmployeeregisterComponent implements OnInit {
     private fb: FormBuilder,
     private employeeservice: EmployeeserviceService,
     private router: Router,
-    private toastr:ToastrService
+    private toastr: ToastrService
   ) {}
   ngOnInit(): void {
     console.log('checking');
@@ -55,31 +55,34 @@ export class EmployeeregisterComponent implements OnInit {
     });
   }
   register() {
-  if (this.employeeregisterForm.invalid) {
-    this.toastr.warning('Please fill all required fields correctly.', 'Warning', {
-      positionClass: 'toast-top-center',
-    });
-    return;
+    if (this.employeeregisterForm.invalid) {
+      this.toastr.warning(
+        'Please fill all required fields correctly.',
+        'Warning',
+        {
+          positionClass: 'toast-top-center',
+        }
+      );
+      return;
+    }
+
+    this.employeeservice
+      .postemployeeregister(this.employeeregisterForm.value)
+      .subscribe({
+        next: (res: any) => {
+          this.toastr.success('Employee registered successfully!', 'Success', {
+            positionClass: 'toast-top-center',
+          });
+          console.log(this.employeeregisterForm.value, 'success');
+
+          this.router.navigateByUrl('/teamlead-dashboard/viewemployee');
+        },
+        error: (err) => {
+          this.toastr.error('Failed to register employee.', 'Error', {
+            positionClass: 'toast-top-center',
+          });
+          console.error(err);
+        },
+      });
   }
-
-  this.employeeservice
-    .postemployeeregister(this.employeeregisterForm.value)
-    .subscribe({
-      next: (res: any) => {
-        this.toastr.success('Employee registered successfully!', 'Success', {
-          positionClass: 'toast-top-center',
-        });
-        console.log(this.employeeregisterForm.value, 'success');
-       
-        this.router.navigateByUrl('/teamlead-dashboard/viewemployee');
-      },
-      error: (err) => {
-        this.toastr.error('Failed to register employee.', 'Error', {
-          positionClass: 'toast-top-center',
-        });
-        console.error(err);
-      },
-    });
-}
-
 }
